@@ -15,15 +15,15 @@ export default function OutcomeList() {
   const [outcomes, setOutcomes] = useState<Outcome[]>([])
 
   useEffect(() => {
-    supabase
+  (async () => {
+    const { data, error } = await supabase
       .from('outcomes')
-      .select<Outcome>('id, code, title')
-      .order('code')
-      .then(({ data, error }) => {
-        if (error) console.error(error)
-        else setOutcomes(data ?? [])
-      })
-  }, [])
+      .select('id, code, title')
+
+    if (error) console.error(error)
+    else setOutcomes(data ?? [])
+  })()
+}, [])
 
   return (
     <div className="p-8 max-w-3xl mx-auto">
