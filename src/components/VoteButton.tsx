@@ -35,7 +35,7 @@ export default function VoteButton({ videoId, initialCount }: VoteButtonProps) {
         'postgres_changes',
         { event: 'UPDATE', schema: 'public', table: 'videos', filter: `id=eq.${videoId}` },
         (payload) => {
-          // @ts-ignore
+
           setCount(payload.new.upvote_count)
         }
       )
