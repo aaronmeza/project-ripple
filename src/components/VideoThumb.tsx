@@ -50,7 +50,8 @@ export default function VideoThumb({ video, showVotes = true, small = false }: P
         </p>
         {showVotes && (
           <div className="mt-1">
-            <VoteButton videoId={video.id} count={video.upvote_count} small />
+            <VoteButton videoId={video.id} small />
+
           </div>
         )}
       </div>
