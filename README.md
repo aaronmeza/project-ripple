@@ -83,9 +83,6 @@ Optional: make PG_CONN dynamic by reading from .env.
 
 Run:
 	
-	bash
-	Copy
-	Edit
 	make install
 	make init
 	make link
