@@ -7,6 +7,16 @@ import Head from 'next/head';
 import { supabase } from '@/lib/supabaseClient';
 import CourseCard, { CourseSummary } from '@/components/CourseCard';
 
+type CourseWithOutcomeCount = {
+  id: number;
+  title: string;
+  description?: string;
+  outcomesCount?: {
+    count: number;
+  } | null;
+};
+
+
 export default function CourseListPage() {
   const [courses, setCourses] = useState<CourseSummary[]>([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +35,7 @@ export default function CourseListPage() {
         setError(error.message);
       } else if (data) {
         // Map Supabase nested count to flat number
-        const mapped = data.map((c: any) => ({
+        const mapped = data.map((c: CourseWithOutcomeCount) => ({
           ...c,
           outcomesCount: c.outcomesCount?.count ?? 0,
         }));

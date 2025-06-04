@@ -22,6 +22,14 @@ interface OutcomeRow {
   top_video?: VideoRow | null;
 }
 
+type OutcomeJoinRow = {
+  outcome: {
+    id: number;
+    code: string;
+    title: string;
+  } | null;
+};
+
 export default function CourseDetailPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -52,7 +60,7 @@ export default function CourseDetailPage() {
       if (ocErr) console.error(ocErr);
 
       const basic: OutcomeRow[] = (outcomeRows ?? [])
-        .map((row: any) => {
+        .map((row: OutcomeJoinRow) => {
           const o = row.outcome;
           if (!o) return null;
           return {
@@ -61,7 +69,7 @@ export default function CourseDetailPage() {
             title: o.title,
             top_video: null,
           } as OutcomeRow;
-        })
+})
         .filter(Boolean) as OutcomeRow[];
 
       // 3. fetch top‑voted video per outcome (if any)
