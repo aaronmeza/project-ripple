@@ -1,6 +1,7 @@
 // ============================================================
 // 2) components/VideoCard.tsx – list item (small thumbnail)
 // ------------------------------------------------------------
+import Image from 'next/image';
 interface Video {
   id: number
   title: string
@@ -17,9 +18,11 @@ export default function VideoCard({ video, isActive, onSelect }: { video: Video;
         isActive ? 'bg-slate-100 border' : ''
       }`}
     >
-      <img
+      <Image
         src={`https://img.youtube.com/vi/${video.provider_id}/default.jpg`}
         alt="thumb"
+        width={80}
+        height={56} // keep 16:9 ratio
         className="w-20 h-14 object-cover rounded"
       />
       <div className="flex-1">

@@ -285,7 +285,7 @@ const handleVote = async (type: 'up' | 'down') => {
                         className={`cursor-pointer flex gap-3 p-2 border rounded hover:bg-gray-50 transition ${selectedVideo?.id === v.id ? 'bg-emerald-50 border-emerald-400' : ''
                       }`}
                     >
-                      <Image
+                        <Image
                         src={getYoutubeThumbnail(v.provider_id)}
                         alt={v.title}
                         width={80}
