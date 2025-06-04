@@ -8,7 +8,7 @@ import { Session } from '@supabase/supabase-js'
 export const AuthContext = createContext<{ session: Session | null }>({ session: null })
 
 export function AuthProvider({ children }: PropsWithChildren) {
-  const [session, setSession] = useState<Session | null>(supabase.auth.getSession() || null)
+  const [session, setSession] = useState<Session | null>(supabase.auth.getSession())
 
   useEffect(() => {
     const { data: listener } = supabase.auth.onAuthStateChange((_event, sess) => {
