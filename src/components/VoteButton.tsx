@@ -52,11 +52,11 @@ export default function VoteButton({ videoId, initialCount }: VoteButtonProps) {
       // remove vote
       await supabase.from('votes').delete().eq('user_id', userId).eq('video_id', videoId)
       setVoted(false)
-      setCount((c) => c - 1)
+      setCount((c) => (c ?? 0) - 1)
     } else {
       await supabase.from('votes').upsert({ user_id: userId, video_id: videoId, value: 1 })
       setVoted(true)
-      setCount((c) => c + 1)
+      setCount((c) => (c ?? 0) + 1)
     }
   }
 
