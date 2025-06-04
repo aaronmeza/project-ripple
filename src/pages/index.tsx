@@ -81,9 +81,9 @@ export default function Home() {
       )}
 
       {/* How It Works */}
-      <section className="bg-gray-100 py-20">
+      <section className="py-20">
         <div className="container mx-auto px-6 max-w-5xl">
-          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <h2 className="text-3xl text-white font-bold text-center mb-12">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-10">
             <div className="bg-white rounded-lg p-8 shadow-md">
               <h3 className="font-semibold text-xl mb-4">Micro‑Outcomes</h3>

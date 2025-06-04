@@ -120,7 +120,7 @@ export default function CourseDetailPage() {
 
         {!loading && (
           <>
-            <h1 className="mb-6 text-2xl font-bold text-gray-800">
+            <h1 className="mb-6 text-2xl font-bold text-white">
               {courseTitle}
             </h1>
 

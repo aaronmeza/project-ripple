@@ -1,7 +1,4 @@
 {
-  "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
   "deno.enablePaths": [
     "supabase/functions"
   ],
@@ -20,5 +17,14 @@
     "fs",
     "http",
     "net"
+  ],
+  "files.autoSave": "off",
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.lintTask.enable": true,
+  "cSpell.words": [
+    "supabase"
   ]
+
+
 }
