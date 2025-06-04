@@ -10,10 +10,10 @@ export const AuthContext = createContext<{ session: Session | null }>({ session:
 export function AuthProvider({ children }: PropsWithChildren) {
 const [session, setSession] = useState<Session | null>(null)
   useEffect(() => {
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, sess) => {
+    const { data: subscription } = supabase.auth.onAuthStateChange((_event, sess) => {
       setSession(sess)
     })
-    return () => listener?.unsubscribe()
+    return () => subscription.unsubscribe()
   }, [])
 
   return <AuthContext.Provider value={{ session }}>{children}</AuthContext.Provider>
