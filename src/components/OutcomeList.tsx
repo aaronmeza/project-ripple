@@ -16,8 +16,8 @@ export default function OutcomeList() {
 
   useEffect(() => {
     supabase
-      .from<Outcome>('outcomes')
-      .select('id, code, title')
+      .from('outcomes')
+      .select<Outcome>('id, code, title')
       .order('code')
       .then(({ data, error }) => {
         if (error) console.error(error)
