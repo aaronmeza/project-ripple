@@ -121,7 +121,7 @@ export default function CourseDetailPage() {
             <ul className="space-y-4">
               {outcomes.map((o) => (
                 <li key={o.id} className="rounded border p-4 hover:shadow">
-                  <Link href={`/outcomes/${o.id}`}>
+                  <Link href={`/outcome/${o.id}?course=${id}`}>
                     <span className="font-medium text-emerald-700 hover:underline">
                       {o.code}: {o.title}
                     </span>

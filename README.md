@@ -1,40 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🎓 Databrook
 
-## Getting Started
+**Databrook** is a social learning platform for outcome-based education. Our mission is to organize the world's learning outcomes and help learners master them through the best community-curated video explanations.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧠 Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📚 **Outcome-first learning** – Browse structured learning outcomes by subject or diploma path.
+- ▶️ **Video-based mastery** – Watch community-submitted videos that explain each outcome.
+- 👍 **Upvoting system** – Learners can upvote the most helpful videos (one vote per user per video).
+- 🧭 **Course mapping** – Each outcome is linked to its parent course for easy navigation.
+- 🧵 **Playlist UI** – Embedded YouTube player with a curated playlist layout for each outcome.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🚀 Tech Stack
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- **Next.js** (App Router)
+- **Supabase** (PostgreSQL + Auth + RPC + Storage)
+- **TailwindCSS** (Utility-first styling)
+- **TypeScript** (Strong typing)
+- **Turbopack** (Blazing fast dev experience)
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🗃️ Database Design
 
-To learn more about Next.js, take a look at the following resources:
+### Tables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- `users` – Linked to Supabase auth users
+- `courses` – Collections of learning outcomes
+- `outcomes` – Core units of learning, linked to a course
+- `videos` – Community-submitted video explanations
+- `video_upvotes` – Join table to track user upvotes on videos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Triggers
 
-## Deploy on Vercel
+- Automatically sync `videos.upvote_count` based on `video_upvotes`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 🔐 Auth
+
+- Google Auth via Supabase
+- Authenticated users can submit and upvote videos
+
+---
+
+## 🛠️ Local Development
+
+1. **Install dependencies**
+
+   ```bash
+   npm install
+	```
+2.	**Run locally**
+
+	```bash
+	npm run dev
+	```
+3. **Connect to Supabase**
+
+	Create a .env.local file with your Supabase
+	```env
+	
+	    NEXT_PUBLIC_SUPABASE_URL=your-project-url
+	    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+4. **Tailwind config**
+
+Tailwind is configured in tailwind.config.js and used throughout with utility classes.
+
+## Setup Instructions
+
+✅ Setup Instructions
+Replace:
+
+your-project-ref with your actual Supabase project ref (you can find this in the Supabase dashboard URL).
+
+your_user:your_password with your DB credentials (ideally set via .env).
+
+Optional: make PG_CONN dynamic by reading from .env.
+
+Run:
+	
+	bash
+	Copy
+	Edit
+	make install
+	make init
+	make link
+	make pull
+	
+To update the init sql script with any schema changes:
+
+Run:
+
+	make init-sql
+	
+To update the seed data from live data:
+
+Run:
+
+	make seed
+	
+
+## ✨ Planned Features
+- User submissions for new videos
+- Personalized progress tracking
+- Diploma-level learning paths
+- AI-curated video suggestions based on learning style
+
+## 🤝 Contributing
+Pull requests are welcome! If you're interested in contributing, feel free to open an issue or reach out.
+
+## 📄 License
+MIT License. See LICENSE file for details.
+
+Built with 💚 by lifelong learners.
+
