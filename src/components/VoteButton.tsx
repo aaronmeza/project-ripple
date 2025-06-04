@@ -6,7 +6,7 @@ import { AuthContext } from '@/components/AuthProvider'
 
 interface VoteButtonProps {
   videoId: number;
-  initialCount: number;
+  initialCount?: number;
   small?: boolean;
 }
 
