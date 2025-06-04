@@ -5,8 +5,9 @@ import { supabase } from '@/lib/supabaseClient'
 import { AuthContext } from '@/components/AuthProvider'
 
 interface VoteButtonProps {
-  videoId: number
-  initialCount: number
+  videoId: number;
+  initialCount: number;
+  small?: boolean;
 }
 
 export default function VoteButton({ videoId, initialCount }: VoteButtonProps) {
